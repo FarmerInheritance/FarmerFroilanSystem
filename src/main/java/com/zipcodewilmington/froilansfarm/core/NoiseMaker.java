@@ -1,5 +1,7 @@
-package com.zipcodewilmington.froilansfarm;
+package com.zipcodewilmington.froilansfarm.core;
 
-public class NoiseMaker {
-    
+import java.util.*;
+
+public interface NoiseMaker {
+    String makeNoise();
 }

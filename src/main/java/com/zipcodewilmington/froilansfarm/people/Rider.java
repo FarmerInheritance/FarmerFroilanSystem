@@ -1,5 +1,6 @@
-package com.zipcodewilmington.froilansfarm;
+package com.zipcodewilmington.froilansfarm.people;
 
-public class Rider {
-    
+public interface Rider {
+    void mount(Rideable r);
+    void dismount(Rideable r);
 }

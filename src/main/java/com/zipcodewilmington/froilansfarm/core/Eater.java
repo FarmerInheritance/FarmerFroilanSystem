@@ -1,5 +1,5 @@
-package com.zipcodewilmington.froilansfarm;
+package com.zipcodewilmington.froilansfarm.core;
 
-public class Eater {
-    
+public interface Eater {
+    void eat(Edible food);
 }

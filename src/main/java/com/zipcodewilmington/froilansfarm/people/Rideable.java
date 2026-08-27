@@ -1,5 +1,6 @@
-package com.zipcodewilmington.froilansfarm;
+package com.zipcodewilmington.froilansfarm.people;
 
-public class Rideable {
-    
+public interface Rideable {
+    void beRidden();
+    void stopBeingRidden();
 }

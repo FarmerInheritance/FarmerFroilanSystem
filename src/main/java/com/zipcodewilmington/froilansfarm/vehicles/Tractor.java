@@ -1,4 +1,4 @@
-package com.zipcodewilmington;
+package com.zipcodewilmington.froilansfarm.vehicles;
 
 public class Tractor {
     
