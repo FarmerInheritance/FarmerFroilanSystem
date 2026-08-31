@@ -1,5 +1,7 @@
 package com.zipcodewilmington.froilansfarm.produce;
 
-public class EarCorn {
-    
+import com.zipcodewilmington.froilansfarm.core.Edible;
+
+public class EarCorn implements Edible {
+
 }
