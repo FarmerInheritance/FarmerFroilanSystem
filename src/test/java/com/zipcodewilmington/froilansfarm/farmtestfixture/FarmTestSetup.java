@@ -42,7 +42,7 @@ public class FarmTestSetup {
         }
 
         allHorses = new ArrayList<>();
-        int[] horsesPerStable = {4, 3, 3}; 
+        int[] horsesPerStable = {4, 3, 3};
         for (int horseCount : horsesPerStable) {
             Stable stable = new Stable();
             for (int i = 0; i < horseCount; i++) {
@@ -54,7 +54,7 @@ public class FarmTestSetup {
         }
 
         allChickens = new ArrayList<>();
-        int[] chickensPerCoop = {4, 4, 4, 3}; 
+        int[] chickensPerCoop = {4, 4, 4, 3};
         for (int chickenCount : chickensPerCoop) {
             ChickenCoop coop = new ChickenCoop();
             for (int i = 0; i < chickenCount; i++) {
