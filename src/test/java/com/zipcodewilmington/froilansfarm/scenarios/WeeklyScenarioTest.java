@@ -73,6 +73,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
     @Test
     @Order(1)
     void sunday_morningRoutine_feedsEveryHorseThreeCorn() {
+        System.out.println("\n===== SUNDAY =====");
         rideAndFeedEveryHorse();
         eatBreakfast();
 
@@ -82,6 +83,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
                     .count();
             assertEquals(3, cornCount);
         }
+        System.out.println("[Sunday] Rode + fed all " + allHorses.size() + " horses. Each has eaten 3 ears of corn.");
     }
 
     @Test
@@ -98,6 +100,10 @@ public class WeeklyScenarioTest extends FarmTestSetup {
         assertEquals(1, countEdibleType(froilan.getConsumedFood(), EarCorn.class));
         assertEquals(2, countEdibleType(froilan.getConsumedFood(), Tomato.class));
         assertEquals(5, countEdibleType(froilan.getConsumedFood(), EdibleEgg.class));
+        System.out.println("[Sunday] Froilan's breakfast total so far: "
+                + countEdibleType(froilan.getConsumedFood(), EarCorn.class) + " corn, "
+                + countEdibleType(froilan.getConsumedFood(), Tomato.class) + " tomato, "
+                + countEdibleType(froilan.getConsumedFood(), EdibleEgg.class) + " egg.");
     }
 
     @Test
@@ -106,6 +112,10 @@ public class WeeklyScenarioTest extends FarmTestSetup {
         assertEquals(2, countEdibleType(froilanda.getConsumedFood(), EarCorn.class));
         assertEquals(1, countEdibleType(froilanda.getConsumedFood(), Tomato.class));
         assertEquals(2, countEdibleType(froilanda.getConsumedFood(), EdibleEgg.class));
+        System.out.println("[Sunday] Froilanda's breakfast total so far: "
+                + countEdibleType(froilanda.getConsumedFood(), EarCorn.class) + " corn, "
+                + countEdibleType(froilanda.getConsumedFood(), Tomato.class) + " tomato, "
+                + countEdibleType(froilanda.getConsumedFood(), EdibleEgg.class) + " egg.");
     }
 
     @Test
@@ -131,6 +141,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
 
         assertEquals(1, row3.getCrops().size());
         assertNotNull(row3.getCrops().get(0));
+        System.out.println("[Sunday] Froilan planted 3 crops: CornStalk (row 1), TomatoPlant (row 2), TomatoPlant (row 3).");
     }
 
     @Test
@@ -147,6 +158,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
     @Test
     @Order(7)
     void monday_morningRoutine_feedsEveryHorseThreeMoreCorn() {
+        System.out.println("\n===== MONDAY (same farm instance as Sunday) =====");
         rideAndFeedEveryHorse();
         eatBreakfast();
 
@@ -156,6 +168,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
                     .count();
             assertEquals(6, cornCount);
         }
+        System.out.println("[Monday] Fed all horses again -> each horse now at 6 total ears of corn (3 from Sunday + 3 today).");
     }
 
     @Test
@@ -188,6 +201,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
         froilanda.fly(cropDuster);
 
         assertTrue(cropDuster.isFlying());
+        System.out.println("[Monday] Froilanda is now flying the CropDuster.");
     }
 
     @Test
@@ -198,6 +212,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
             totalCrops += row.getCrops().size();
         }
         assertTrue(totalCrops > 0, "Expected Sunday's planted crops to still be present.");
+        System.out.println("[Monday] Found " + totalCrops + " crop(s) still in the field from Sunday's planting -> carrying over correctly.");
 
         for (CropRow row : allCropRows) {
             cropDuster.fertilize(row);
@@ -208,6 +223,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
                 assertTrue(crop.hasBeenFertilized());
             }
         }
+        System.out.println("[Monday] Fertilized all " + totalCrops + " crop(s).");
     }
 
     @Test
@@ -223,6 +239,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
     @Test
     @Order(14)
     void tuesday_morningRoutine_feedsEveryHorseThreeMoreCorn() {
+        System.out.println("\n===== TUESDAY (same farm instance as Sunday + Monday) =====");
         rideAndFeedEveryHorse();
         eatBreakfast();
 
@@ -232,6 +249,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
                     .count();
             assertEquals(9, cornCount);
         }
+        System.out.println("[Tuesday] Fed all horses again -> each horse now at 9 total ears of corn (3 per day x 3 days).");
     }
 
     @Test
@@ -270,6 +288,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
             }
         }
         assertTrue(totalCrops > 0, "Expected crops planted Sunday to still be present.");
+        System.out.println("[Tuesday] Found " + totalCrops + " crop(s), all already fertilized from Monday -> carrying over correctly.");
 
         for (CropRow row : allCropRows) {
             for (Crop crop : row.getCrops()) {
@@ -282,6 +301,7 @@ public class WeeklyScenarioTest extends FarmTestSetup {
                 assertTrue(crop.hasBeenHarvested());
             }
         }
+        System.out.println("[Tuesday] Harvested all " + totalCrops + " crop(s) with the Tractor.\n");
     }
 
     @Test
