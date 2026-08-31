@@ -1,5 +1,8 @@
 package com.zipcodewilmington.froilansfarm.people;
 
-public class Pilot {
-    
+import com.zipcodewilmington.froilansfarm.vehicles.Aircraft;
+
+public interface Pilot {
+
+    void fly(Aircraft aircraft);
 }

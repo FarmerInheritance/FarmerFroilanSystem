@@ -1,5 +1,8 @@
 package com.zipcodewilmington.froilansfarm.produce;
 
-public class Produce {
-    
+import com.zipcodewilmington.froilansfarm.core.Edible;
+
+public interface Produce<T extends Edible> {
+
+    T yield();
 }
